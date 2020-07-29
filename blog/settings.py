@@ -21,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'jzp6z%@^bosjk#pcihx50i5f3bvfl^3q3-x-c08vw@1-)jdr7u'
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = True
 
@@ -102,6 +102,17 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 #         'USER': 'bloguser',
 #         'PASSWORD': 'bloguser',
 #         'HOST': '192.168.168.242',
+#         'PORT': '5432',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'blog',
+#         'USER': 'bloguser',
+#         'PASSWORD': 'bloguser',
+#         'HOST': 'localhost',
 #         'PORT': '5432',
 #     }
 # }
