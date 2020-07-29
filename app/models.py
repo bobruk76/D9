@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     slug = models.CharField(max_length=128)
@@ -21,3 +22,4 @@ class Post(models.Model):
     updated = models.DateTimeField(default=timezone.now)
     publication_date = models.DateTimeField(default=timezone.now)
     category = models.ManyToManyField(Category, blank=True)
+    author = models.ForeignKey(User, null=True, default=None, on_delete=models.CASCADE)
