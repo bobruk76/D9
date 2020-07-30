@@ -14,11 +14,11 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = '__all__'
+        fields = ['title','status','content','updated','publication_date']
 
 class CategorySerializer(serializers.ModelSerializer):
     posts = PostSerializer(many=True, read_only=True)
 
     class Meta:
         model = Category
-        fields = '__all__'
+        fields = ['name','posts']
