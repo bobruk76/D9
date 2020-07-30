@@ -9,7 +9,7 @@ class PostList(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
-class PostDetail(generics.RetrieveAPIView):
+class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
@@ -17,6 +17,6 @@ class CategoryList(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-class CategoryDetails(generics.RetrieveAPIView):
+class CategoryDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer

@@ -11,7 +11,7 @@ class Category(models.Model):
         verbose_name_plural = 'Категории'
 
     def __str__(self):
-        return f'{self.name} ({self.slug})'
+        return f'{self.name}'
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
@@ -20,13 +20,13 @@ class Post(models.Model):
     content = models.TextField()
     updated = models.DateTimeField(default=timezone.now)
     publication_date = models.DateTimeField(default=timezone.now)
-    category = models.ManyToManyField(Category, blank=True)
+    category = models.ManyToManyField(Category, blank=True, related_name='posts')
     author = models.ForeignKey(User, null=True, default=None, on_delete=models.CASCADE)
 
 
     class Meta:
-        verbose_name = ''
-        verbose_name_plural = 'Категории'
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Пост'
 
     def __str__(self):
-        return f'{self.title} ({self.slug})'
+        return f'{self.title}'

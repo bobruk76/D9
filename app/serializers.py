@@ -6,19 +6,24 @@ from django.contrib.auth.models import User
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name']
+        fields = ['username']
+
 
 class PostSerializer(serializers.ModelSerializer):
     author = AuthorSerializer(required=False)
 
+    category = serializers.StringRelatedField(many=True)
+
 
     class Meta:
         model = Post
-        fields = ['title','status','content','updated','publication_date']
+        fields = ['title','status','content','updated','publication_date', 'author','category']
+
 
 class CategorySerializer(serializers.ModelSerializer):
-    posts = PostSerializer(many=True, read_only=True)
+    posts = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Category
         fields = ['name','posts']
+
