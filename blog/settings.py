@@ -21,9 +21,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-SECRET_KEY = 'jzp6z%@^bosjk#pcihx50i5f3bvfl^3q3-x-c08vw@1-)jdr7u'
+# SECRET_KEY = 'jzp6z%@^bosjk#pcihx50i5f3bvfl^3q3-x-c08vw@1-)jdr7u'
 
-# SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = True
 
@@ -94,16 +94,16 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'blog',
-        'USER': 'bloguser',
-        'PASSWORD': 'bloguser',
-        'HOST': '192.168.168.242',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'blog',
+#         'USER': 'bloguser',
+#         'PASSWORD': 'bloguser',
+#         'HOST': '192.168.168.242',
+#         'PORT': '5432',
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
@@ -116,7 +116,7 @@ DATABASES = {
 #     }
 # }
 
-# DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
+DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 
 django_heroku.settings(locals())
 
